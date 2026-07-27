@@ -30,23 +30,19 @@
 
     position: fixed;
 
-    bottom: 25px;
+    top: 20px;
 
-    right: 25px;
+    right: 20px;
 
-    top: auto;
+    z-index: 10000;
 
-    left: auto;
-
-    z-index: 99999;
-
-    padding: 12px 20px;
+    border: none;
 
     background: #1565C0;
 
     color: white;
 
-    border: none;
+    padding: 12px 20px;
 
     border-radius: 8px;
 
@@ -56,7 +52,9 @@
 
     font-weight: bold;
 
-    box-shadow: 0 4px 12px rgba(0,0,0,.35);
+    box-shadow: 0 3px 10px rgba(0,0,0,.30);
+
+}
 
 }
 
