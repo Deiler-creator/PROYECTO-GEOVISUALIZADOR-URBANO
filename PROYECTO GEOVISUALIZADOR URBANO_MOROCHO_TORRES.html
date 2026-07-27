@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
-    <head>
+    <link rel="stylesheet" href="dashboard.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
@@ -23,6 +25,278 @@
         <title>PROYECTO GEOVISUALIZADOR URBANO</title>
     </head>
     <body>
+		<!-- ==========================================================
+     BOTÓN DEL DASHBOARD
+=========================================================== -->
+
+<button class="toggleDashboard" onclick="toggleDashboard()">
+📊 Indicadores
+</button>
+
+
+<!-- ==========================================================
+     DASHBOARD
+=========================================================== -->
+
+<div id="dashboard">
+
+    <div class="dashboardHeader">
+
+        <h2>Área de estudio</h2>
+
+        <p>Indicadores Urbanos</p>
+
+    </div>
+
+
+    <!-- ======================================================
+         INFORMACIÓN GENERAL
+    ======================================================= -->
+
+    <div class="section">
+
+        <h3>Información general</h3>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h4>Área</h4>
+
+                <span id="txtArea"></span>
+
+            </div>
+
+            <div class="card">
+
+                <h4>Población</h4>
+
+                <span id="txtPoblacion"></span>
+
+            </div>
+
+            <div class="card">
+
+                <h4>Manzanas</h4>
+
+                <span id="txtManzanas"></span>
+
+            </div>
+
+            <div class="card">
+
+                <h4>Densidad</h4>
+
+                <span id="txtDensidad"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ======================================================
+         USO DEL SUELO
+    ======================================================= -->
+
+    <div class="section">
+
+        <h3>Uso del suelo</h3>
+
+        <div class="chartBox">
+
+            <canvas id="usoSueloChart"></canvas>
+
+        </div>
+
+    </div>
+
+
+    <!-- ======================================================
+         EDUCACIÓN
+    ======================================================= -->
+
+    <div class="section">
+
+        <h3>Educación</h3>
+
+        <table>
+
+            <tr>
+
+                <th>Indicador</th>
+
+                <th>Valor</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Radio de influencia</td>
+
+                <td id="eduRadio"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Manzanas cubiertas</td>
+
+                <td id="eduManzanas"></td>
+
+            </tr>
+
+        </table>
+
+        <div class="progress">
+
+            <div class="educacion"></div>
+
+        </div>
+
+        <p style="text-align:center;margin-top:8px;">
+            Cobertura:
+            <strong id="eduCobertura"></strong>
+        </p>
+
+    </div>
+
+
+    <!-- ======================================================
+         SALUD
+    ======================================================= -->
+
+    <div class="section">
+
+        <h3>Salud</h3>
+
+        <table>
+
+            <tr>
+
+                <th>Indicador</th>
+
+                <th>Valor</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Radio de influencia</td>
+
+                <td id="salRadio"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Manzanas cubiertas</td>
+
+                <td id="salManzanas"></td>
+
+            </tr>
+
+        </table>
+
+        <div class="progress">
+
+            <div class="salud"></div>
+
+        </div>
+
+        <p style="text-align:center;margin-top:8px;">
+            Cobertura:
+            <strong id="salCobertura"></strong>
+        </p>
+
+    </div>
+
+
+    <!-- ======================================================
+         ÁREAS VERDES
+    ======================================================= -->
+
+    <div class="section">
+
+        <h3>Áreas verdes</h3>
+
+        <div class="greenBox">
+
+            <p>
+
+                <strong>Área verde disponible</strong>
+
+                <br>
+
+                <span id="greenArea"></span>
+
+            </p>
+
+            <p>
+
+                <strong>m²/hab</strong>
+
+                <br>
+
+                <span id="greenValue"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Déficit frente a OMS</strong>
+
+                <br>
+
+                <span id="greenDeficit"></span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ======================================================
+         RIESGO
+    ======================================================= -->
+
+    <div class="section">
+
+        <h3>Riesgo de inundación</h3>
+
+        <div class="riskGrid">
+
+            <div class="riskItem">
+
+                Manzanas
+
+                <span id="riskM"></span>
+
+            </div>
+
+            <div class="riskItem">
+
+                Área
+
+                <span id="riskA"></span>
+
+            </div>
+
+            <div class="riskItem">
+
+                Habitantes
+
+                <span id="riskH"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -1024,5 +1298,6 @@
         });       
         setBounds();
         </script>        
-    </body>
+    <script src="dashboard.js"></script>
+	</body>
 </html>
