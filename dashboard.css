@@ -28,23 +28,19 @@
 
 .toggleDashboard{
 
-    position: fixed !important;
+    position: fixed;
 
-    top: 15px !important;
+    bottom: 25px;
 
-    right: 20px !important;
+    right: 25px;
 
-    left: auto !important;
+    top: auto;
 
-    bottom: auto !important;
+    left: auto;
 
-    margin: 0 !important;
+    z-index: 99999;
 
-    transform: none !important;
-
-    z-index: 999999 !important;
-
-    padding: 12px 18px;
+    padding: 12px 20px;
 
     background: #1565C0;
 
@@ -54,13 +50,15 @@
 
     border-radius: 8px;
 
+    cursor: pointer;
+
     font-size: 15px;
 
     font-weight: bold;
 
-    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,.35);
 
-    box-shadow: 0 4px 12px rgba(0,0,0,.30);
+}
 
 }
 
